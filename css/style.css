@@ -1,0 +1,222 @@
+/* Color Variables */
+:root {
+  --bg-dark: #121212;
+  --bg-card: #1e1e1e;
+  --bg-card-hover: #282828;
+  --border-color: #2c2c2c;
+  --text-main: #e0e0e0;
+  --text-muted: #a0a0a0;
+  --accent-white: #ffffff;
+  --font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+}
+
+/* Base Reset */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Body layout using flexbox to push footer down */
+body {
+  background-color: var(--bg-dark);
+  color: var(--text-main);
+  font-family: var(--font-family);
+  line-height: 1.6;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Header and Navigation Bar */
+header {
+  background-color: #080808;
+  border-bottom: 1px solid var(--border-color);
+  padding: 1.2rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--accent-white);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+nav a {
+  color: var(--text-muted);
+  text-decoration: none;
+  margin-left: 1.5rem;
+  font-weight: 500;
+  transition: color 0.2s ease, border-color 0.2s ease;
+}
+
+/* Nav links on hover and active page indicator */
+nav a:hover,
+nav a.active {
+  color: var(--accent-white);
+  border-bottom: 2px solid var(--accent-white);
+  padding-bottom: 4px;
+}
+
+/* Main Content Wrapper */
+main {
+  max-width: 1000px;
+  width: 90%;
+  margin: 2.5rem auto;
+  flex: 1;
+}
+
+/* Top Hero Block */
+.hero {
+  text-align: center;
+  padding: 3rem 1.5rem;
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  margin-bottom: 2rem;
+}
+
+.hero h1 {
+  font-size: 2.4rem;
+  color: var(--accent-white);
+  margin-bottom: 0.5rem;
+}
+
+.hero p {
+  color: var(--text-muted);
+  font-size: 1.05rem;
+}
+
+/* Grid layout for cards that wraps automatically */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+/* Teacher Cards */
+.card {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 1.5rem;
+  transition: transform 0.2s ease, background-color 0.2s ease, border-color 0.2s ease;
+}
+
+/* Lift card up on hover */
+.card:hover {
+  transform: translateY(-3px);
+  background-color: var(--bg-card-hover);
+  border-color: #3e3e3e;
+}
+
+.card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 6px;
+  margin-bottom: 1rem;
+  border: 1px solid var(--border-color);
+}
+
+.card h3 {
+  color: var(--accent-white);
+  margin-bottom: 0.25rem;
+  font-size: 1.2rem;
+}
+
+.card .subject {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  margin-bottom: 0.75rem;
+  font-style: italic;
+}
+
+/* Blocks for video */
+.media-block {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.media-block h2 {
+  color: var(--accent-white);
+  margin-bottom: 1rem;
+  font-size: 1.4rem;
+}
+
+.media-block p {
+  color: var(--text-muted);
+  margin-bottom: 1rem;
+}
+
+video, audio {
+  width: 100%;
+  border-radius: 6px;
+  outline: none;
+}
+
+/* Footer bar at bottom */
+footer {
+  text-align: center;
+  padding: 1.5rem;
+  background-color: #080808;
+  border-top: 1px solid var(--border-color);
+  color: var(--text-muted);
+  font-size: 0.85rem;
+}
+
+/* Audio Player Card */
+.floating-audio-card {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  background-color: #1e1e1e;
+  border: 1px solid var(--border-color);
+  padding: 0.75rem 1rem;
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  z-index: 9999;
+  
+  /* Deep Floating Drop Shadow */
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7),
+              0 2px 8px rgba(0, 0, 0, 0.5);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.floating-audio-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 14px 36px rgba(0, 0, 0, 0.8),
+              0 4px 12px rgba(0, 0, 0, 0.6);
+}
+
+/* Audio Title Label */
+.audio-label {
+  font-family: monospace, sans-serif;
+  font-size: 0.85rem;
+  color: #e0e0e0;
+  letter-spacing: 1px;
+}
+
+/* Compact style for native audio bar */
+.floating-audio-card audio {
+  height: 40px;
+  width: 240px;
+}
+
+/* Gray theme for audio player */
+.floating-audio-card audio {
+  height: 40px;
+  width: 240px;
+  filter: invert(100%) hue-rotate(180deg);
+  border-radius: 30px;
+}
